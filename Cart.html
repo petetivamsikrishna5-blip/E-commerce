@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - ThinkMart</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Main Navigation Bar -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="Home-Page.html" class="logo">
+                    <div class="logo-icon"><i class="fa-solid fa-bolt"></i></div>
+                    Think<span>Mart</span>
+                </a>
+
+                <ul class="nav-menu">
+                    <li><a href="Home-Page.html" class="nav-link">Home</a></li>
+                    <li><a href="Products.html" class="nav-link">Products</a></li>
+                    <li><a href="Cart.html" class="nav-link active">Cart</a></li>
+                    <li><a href="About.html" class="nav-link">About Us</a></li>
+                    <li><a href="Contact.html" class="nav-link">Contact</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <a href="index.html" class="btn-login"><i class="fa-regular fa-user"></i> Login</a>
+                    <a href="Register-Page.html" class="btn-register">Register</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumb-nav">
+        <div class="container">
+            <div class="breadcrumb-list">
+                <a href="Home-Page.html"><i class="fa-solid fa-house"></i> Home</a>
+                <span class="separator"><i class="fa-solid fa-chevron-right"></i></span>
+                <a href="Products.html">Products</a>
+                <span class="separator"><i class="fa-solid fa-chevron-right"></i></span>
+                <span class="current">Shopping Cart</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Cart Layout -->
+    <main class="cart-page-wrapper">
+        <div class="container">
+            
+            <div class="section-header" style="text-align: left; margin-bottom: 1.5rem;">
+                <h1 class="section-title">Shopping Cart (3 Items)</h1>
+            </div>
+
+            <div class="cart-layout">
+                
+                <!-- Left: Cart Items Table -->
+                <div class="cart-table-card">
+                    <table class="cart-table">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Subtotal</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            <!-- Cart Item 1 -->
+                            <tr>
+                                <td>
+                                    <div class="cart-item-cell">
+                                        <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=200&q=80" alt="Apple MacBook Pro" class="cart-item-img">
+                                        <div class="cart-item-info">
+                                            <h4>Apple MacBook Pro 16"</h4>
+                                            <span>M3 Max / 36GB / 1TB SSD</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span>$2,499.00</span>
+                                </td>
+                                <td>
+                                    <div class="quantity-control">
+                                        <button class="qty-btn" onclick="let input=this.nextElementSibling; if(input.value>1)input.value--;">-</button>
+                                        <input type="text" class="qty-input" value="1" readonly>
+                                        <button class="qty-btn" onclick="let input=this.previousElementSibling; input.value++;">+</button>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-weight: 700; color: var(--primary);">$2,499.00</span>
+                                </td>
+                                <td>
+                                    <button class="cart-remove-btn" title="Remove item" onclick="this.closest('tr').remove();">
+                                        <i class="fa-regular fa-trash-can"></i>
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <!-- Cart Item 2 -->
+                            <tr>
+                                <td>
+                                    <div class="cart-item-cell">
+                                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=200&q=80" alt="Sony WH-1000XM5" class="cart-item-img">
+                                        <div class="cart-item-info">
+                                            <h4>Sony WH-1000XM5</h4>
+                                            <span>Wireless ANC Over-Ear</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span>$279.00</span>
+                                </td>
+                                <td>
+                                    <div class="quantity-control">
+                                        <button class="qty-btn" onclick="let input=this.nextElementSibling; if(input.value>1)input.value--;">-</button>
+                                        <input type="text" class="qty-input" value="1" readonly>
+                                        <button class="qty-btn" onclick="let input=this.previousElementSibling; input.value++;">+</button>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-weight: 700; color: var(--primary);">$279.00</span>
+                                </td>
+                                <td>
+                                    <button class="cart-remove-btn" title="Remove item" onclick="this.closest('tr').remove();">
+                                        <i class="fa-regular fa-trash-can"></i>
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <!-- Cart Item 3 -->
+                            <tr>
+                                <td>
+                                    <div class="cart-item-cell">
+                                        <img src="https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&w=200&q=80" alt="Apple Watch Ultra 2" class="cart-item-img">
+                                        <div class="cart-item-info">
+                                            <h4>Apple Watch Ultra 2</h4>
+                                            <span>GPS + Cellular 49mm</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span>$749.00</span>
+                                </td>
+                                <td>
+                                    <div class="quantity-control">
+                                        <button class="qty-btn" onclick="let input=this.nextElementSibling; if(input.value>1)input.value--;">-</button>
+                                        <input type="text" class="qty-input" value="1" readonly>
+                                        <button class="qty-btn" onclick="let input=this.previousElementSibling; input.value++;">+</button>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-weight: 700; color: var(--primary);">$749.00</span>
+                                </td>
+                                <td>
+                                    <button class="cart-remove-btn" title="Remove item" onclick="this.closest('tr').remove();">
+                                        <i class="fa-regular fa-trash-can"></i>
+                                    </button>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                    <div class="cart-coupon-box">
+                        <input type="text" placeholder="Promo code (e.g. THINK50)">
+                        <button class="btn btn-secondary btn-sm" onclick="alert('Coupon applied!');">Apply</button>
+                    </div>
+                </div>
+
+                <!-- Right: Order Summary Card -->
+                <div class="order-summary-card">
+                    <h3 class="summary-title">Order Summary</h3>
+
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <span>$3,527.00</span>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Shipping</span>
+                        <span style="color: var(--accent-green);">FREE</span>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Estimated Tax</span>
+                        <span>$0.00</span>
+                    </div>
+
+                    <div class="summary-divider"></div>
+
+                    <div class="summary-total">
+                        <span>Total</span>
+                        <span>$3,527.00</span>
+                    </div>
+
+                    <button class="btn btn-primary btn-block" onclick="alert('Thank you! Redirecting to checkout.');">
+                        <i class="fa-solid fa-lock"></i> Proceed to Checkout
+                    </button>
+
+                    <div style="text-align: center; margin-top: 1rem;">
+                        <a href="Products.html" style="font-size: 0.85rem; color: var(--text-muted);">
+                            <i class="fa-solid fa-arrow-left"></i> Continue Shopping
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="Home-Page.html" class="logo">
+                        <div class="logo-icon"><i class="fa-solid fa-bolt"></i></div>
+                        Think<span>Mart</span>
+                    </a>
+                    <p>Your one-stop tech store for laptops, smartphones, smartwatches, and electronics.</p>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="Home-Page.html">Home</a></li>
+                        <li><a href="Products.html">Products</a></li>
+                        <li><a href="Cart.html">Cart</a></li>
+                        <li><a href="About.html">About Us</a></li>
+                        <li><a href="Contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="Contact.html">Help Desk</a></li>
+                        <li><a href="Contact.html">FAQs</a></li>
+                        <li><a href="Cart.html">My Cart</a></li>
+                        <li><a href="index.html">My Account</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Newsletter</h4>
+                    <p style="font-size: 0.85rem;">Subscribe to get updates on new products and offers.</p>
+                    <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed successfully!');">
+                        <input type="email" class="newsletter-input" placeholder="Enter your email" required>
+                        <button type="submit" class="btn btn-primary btn-sm">Join</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 ThinkMart E-Commerce. All rights reserved.</p>
+                <div>
+                    <a href="#">Privacy Policy</a> &bull; <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

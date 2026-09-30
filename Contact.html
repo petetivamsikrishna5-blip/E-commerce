@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - ThinkMart</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Main Navigation Bar -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="Home-Page.html" class="logo">
+                    <div class="logo-icon"><i class="fa-solid fa-bolt"></i></div>
+                    Think<span>Mart</span>
+                </a>
+
+                <ul class="nav-menu">
+                    <li><a href="Home-Page.html" class="nav-link">Home</a></li>
+                    <li><a href="Products.html" class="nav-link">Products</a></li>
+                    <li><a href="Cart.html" class="nav-link">Cart</a></li>
+                    <li><a href="About.html" class="nav-link">About Us</a></li>
+                    <li><a href="Contact.html" class="nav-link active">Contact</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <a href="index.html" class="btn-login"><i class="fa-regular fa-user"></i> Login</a>
+                    <a href="Register-Page.html" class="btn-register">Register</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumb-nav">
+        <div class="container">
+            <div class="breadcrumb-list">
+                <a href="Home-Page.html"><i class="fa-solid fa-house"></i> Home</a>
+                <span class="separator"><i class="fa-solid fa-chevron-right"></i></span>
+                <span class="current">Contact Us</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Main Section -->
+    <main>
+        <section class="contact-page-wrapper">
+            <div class="container">
+                
+                <div class="section-header">
+                    <span class="section-tag">Get in Touch</span>
+                    <h1 class="section-title">Contact Us</h1>
+                    <p class="section-desc">Have a question or need assistance? Send us a message.</p>
+                </div>
+
+                <div class="contact-layout">
+                    
+                    <!-- Left: Contact Information -->
+                    <div class="contact-info-card">
+                        <div>
+                            <div class="contact-info-header">
+                                <h2>Contact Details</h2>
+                                <p>We are here to help you 24/7.</p>
+                            </div>
+
+                            <div class="contact-info-list">
+                                <div class="contact-detail-item">
+                                    <div class="detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+                                    <div class="detail-text">
+                                        <h4>Address</h4>
+                                        <p>123 Tech Park Avenue, Silicon Valley, CA</p>
+                                    </div>
+                                </div>
+
+                                <div class="contact-detail-item">
+                                    <div class="detail-icon"><i class="fa-solid fa-phone"></i></div>
+                                    <div class="detail-text">
+                                        <h4>Phone</h4>
+                                        <p><a href="tel:+18005558446">+1 (800) 555-8446</a></p>
+                                    </div>
+                                </div>
+
+                                <div class="contact-detail-item">
+                                    <div class="detail-icon"><i class="fa-solid fa-envelope"></i></div>
+                                    <div class="detail-text">
+                                        <h4>Email</h4>
+                                        <p><a href="mailto:support@thinkmart.com">support@thinkmart.com</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4 style="color: #FFFFFF; font-size: 0.9rem; margin-bottom: 0.5rem;">Follow Us</h4>
+                            <div class="social-icons-row">
+                                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Contact Form -->
+                    <div class="contact-form-card">
+                        <h3>Send a Message</h3>
+                        <p>Fill out the form and we will reply as soon as possible.</p>
+
+                        <form onsubmit="event.preventDefault(); alert('Message sent successfully!'); this.reset();">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="c-name">Full Name</label>
+                                    <input type="text" id="c-name" placeholder="Your name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="c-email">Email Address</label>
+                                    <input type="email" id="c-email" placeholder="Your email" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="c-subject">Subject</label>
+                                <select id="c-subject">
+                                    <option>General Inquiry</option>
+                                    <option>Order Support</option>
+                                    <option>Product Question</option>
+                                    <option>Feedback</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="c-message">Message</label>
+                                <textarea id="c-message" rows="5" placeholder="Type your message here..." required></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-block">
+                                <i class="fa-solid fa-paper-plane"></i> Send Message
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- FAQs Section -->
+        <section class="faq-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Help Center</span>
+                    <h2 class="section-title">Frequently Asked Questions</h2>
+                </div>
+
+                <div class="faq-grid">
+                    <div class="faq-card">
+                        <div class="faq-question">What payment methods do you accept?</div>
+                        <div class="faq-answer">We accept credit cards (Visa, MasterCard, Amex), PayPal, and Apple Pay.</div>
+                    </div>
+
+                    <div class="faq-card">
+                        <div class="faq-question">How long does shipping take?</div>
+                        <div class="faq-answer">Standard shipping takes 3-5 business days. Express shipping takes 1-2 days.</div>
+                    </div>
+
+                    <div class="faq-card">
+                        <div class="faq-question">Can I return an item?</div>
+                        <div class="faq-answer">Yes, we provide 30-day returns with full refunds for undamaged products in original packaging.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="Home-Page.html" class="logo">
+                        <div class="logo-icon"><i class="fa-solid fa-bolt"></i></div>
+                        Think<span>Mart</span>
+                    </a>
+                    <p>Your one-stop tech store for laptops, smartphones, smartwatches, and electronics.</p>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="Home-Page.html">Home</a></li>
+                        <li><a href="Products.html">Products</a></li>
+                        <li><a href="Cart.html">Cart</a></li>
+                        <li><a href="About.html">About Us</a></li>
+                        <li><a href="Contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="Contact.html">Help Desk</a></li>
+                        <li><a href="Contact.html">FAQs</a></li>
+                        <li><a href="Cart.html">My Cart</a></li>
+                        <li><a href="index.html">My Account</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Newsletter</h4>
+                    <p style="font-size: 0.85rem;">Subscribe to get updates on new products and offers.</p>
+                    <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed successfully!');">
+                        <input type="email" class="newsletter-input" placeholder="Enter your email" required>
+                        <button type="submit" class="btn btn-primary btn-sm">Join</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 ThinkMart E-Commerce. All rights reserved.</p>
+                <div>
+                    <a href="#">Privacy Policy</a> &bull; <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

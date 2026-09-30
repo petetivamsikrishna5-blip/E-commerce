@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - ThinkMart</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Main Navigation Bar -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="Home-Page.html" class="logo">
+                    <div class="logo-icon"><i class="fa-solid fa-bolt"></i></div>
+                    Think<span>Mart</span>
+                </a>
+
+                <ul class="nav-menu">
+                    <li><a href="Home-Page.html" class="nav-link">Home</a></li>
+                    <li><a href="Products.html" class="nav-link">Products</a></li>
+                    <li><a href="Cart.html" class="nav-link">Cart</a></li>
+                    <li><a href="About.html" class="nav-link">About Us</a></li>
+                    <li><a href="Contact.html" class="nav-link">Contact</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <a href="index.html" class="btn-login active"><i class="fa-regular fa-user"></i> Login</a>
+                    <a href="Register-Page.html" class="btn-register">Register</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Simple Login Form Section -->
+    <main class="simple-auth-container">
+        <div class="simple-form-card">
+            
+            <div class="simple-auth-header">
+                <div class="auth-logo">
+                    <div class="logo-icon"><i class="fa-solid fa-bolt"></i></div>
+                    Think<span>Mart</span>
+                </div>
+                <h2>Welcome Back</h2>
+                <p>Please enter your login details</p>
+            </div>
+
+            <!-- Login Form -->
+            <form action="Home-Page.html" method="GET">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="name@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+
+                <div class="form-options">
+                    <label>
+                        <input type="checkbox" name="remember" checked>
+                        <span>Remember me</span>
+                    </label>
+                    <a href="#">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">
+                    <i class="fa-solid fa-arrow-right-to-bracket"></i> Login
+                </button>
+            </form>
+
+            <div class="form-switch-link">
+                Don't have an account? <a href="Register-Page.html">Register here</a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="Home-Page.html" class="logo">
+                        <div class="logo-icon"><i class="fa-solid fa-bolt"></i></div>
+                        Think<span>Mart</span>
+                    </a>
+                    <p>Your one-stop tech store for laptops, smartphones, smartwatches, and electronics.</p>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="Home-Page.html">Home</a></li>
+                        <li><a href="Products.html">Products</a></li>
+                        <li><a href="Cart.html">Cart</a></li>
+                        <li><a href="About.html">About Us</a></li>
+                        <li><a href="Contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="Contact.html">Help Desk</a></li>
+                        <li><a href="Contact.html">FAQs</a></li>
+                        <li><a href="Cart.html">My Cart</a></li>
+                        <li><a href="index.html">My Account</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Newsletter</h4>
+                    <p style="font-size: 0.85rem;">Subscribe to get updates on new products and offers.</p>
+                    <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed successfully!');">
+                        <input type="email" class="newsletter-input" placeholder="Enter your email" required>
+                        <button type="submit" class="btn btn-primary btn-sm">Join</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 ThinkMart E-Commerce. All rights reserved.</p>
+                <div>
+                    <a href="#">Privacy Policy</a> &bull; <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
