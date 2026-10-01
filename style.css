@@ -7,10 +7,10 @@
 
 /* --- Colors & Variables --- */
 :root {
-    --primary: #4F46E5;
-    --primary-hover: #4338CA;
-    --primary-light: #EEF2FF;
-    --accent-red: #EF4444;
+    --primary: #0F766E;
+    --primary-hover: #115E59;
+    --primary-light: #CCFBF1;
+    --accent-red: #E05A47;
     --accent-green: #10B981;
     --accent-amber: #F59E0B;
     --accent-orange: #F97316;
@@ -429,7 +429,7 @@ img {
    ========================================================================== */
 .hero {
     padding: 3.5rem 0;
-    background: var(--bg-white);
+    background: linear-gradient(115deg, #F0FDFA 0%, #FFFFFF 62%, #FFF7F3 100%);
     border-bottom: 1px solid var(--border-color);
 }
 
@@ -469,6 +469,7 @@ img {
     width: 100%;
     height: 350px;
     object-fit: cover;
+    border: 6px solid rgba(255, 255, 255, 0.8);
 }
 
 .features-section {
@@ -520,12 +521,12 @@ img {
 }
 
 .category-card {
-    background: var(--bg-main);
+    background: var(--bg-white);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-md);
     padding: 1.5rem 1rem;
     text-align: center;
-    transition: all 0.2s;
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 
 .category-card:hover {
@@ -535,9 +536,15 @@ img {
 }
 
 .category-icon-wrapper {
+    width: 54px;
+    height: 54px;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 0.75rem;
+    border-radius: 14px;
+    background: var(--primary-light);
     font-size: 2rem;
     color: var(--primary);
-    margin-bottom: 0.75rem;
 }
 
 .category-card h3 {
@@ -576,7 +583,8 @@ img {
 }
 
 .product-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-5px);
+    border-color: #99D6CE;
     box-shadow: var(--shadow-md);
 }
 
@@ -590,6 +598,11 @@ img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.35s ease;
+}
+
+.product-card:hover .product-thumb img {
+    transform: scale(1.04);
 }
 
 .badge-discount {
@@ -723,7 +736,7 @@ img {
 }
 
 .banner-desc {
-    color: #E0E7FF;
+    color: #CCFBF1;
     margin-bottom: 1.5rem;
 }
 
@@ -957,7 +970,7 @@ img {
 }
 
 .about-hero p {
-    color: #E0E7FF;
+    color: #CCFBF1;
     max-width: 600px;
     margin: 0 auto;
 }
@@ -1262,6 +1275,22 @@ img {
     font-size: 0.825rem;
     flex-wrap: wrap;
     gap: 0.5rem;
+}
+
+:focus-visible {
+    outline: 3px solid var(--accent-amber);
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
 }
 
 /* --- Responsive Media Queries --- */
