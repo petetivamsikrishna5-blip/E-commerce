@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<header class="site-header" th:fragment="header(active, cartCount)">
+    <div class="announcement">Good design. Better devices. Free shipping over $50.</div>
+    <div class="nav-wrap">
+        <a class="wordmark" th:href="@{/home}" aria-label="ThinkMart home">think<span>mart</span><i>.</i></a>
+        <nav class="main-nav" aria-label="Main navigation">
+            <a th:href="@{/products}" th:classappend="${active == 'products'} ? ' current'">Shop</a>
+            <a th:href="@{/about}" th:classappend="${active == 'about'} ? ' current'">Our story</a>
+            <a th:href="@{/contact}" th:classappend="${active == 'contact'} ? ' current'">Support</a>
+        </nav>
+        <div class="account-links"><a th:href="@{/login}">Log in</a><a class="signup-link" th:href="@{/signup}">Sign up</a></div>
+        <a class="cart-link" th:href="@{/cart}" aria-label="Shopping bag">
+            <span>Bag</span><span class="bag-count" th:text="${cartCount}">0</span>
+        </a>
+    </div>
+</header>
+<footer class="site-footer" th:fragment="footer">
+    <div class="footer-main">
+        <a class="wordmark footer-mark" th:href="@{/home}">think<span>mart</span><i>.</i></a>
+        <p>Considered tech for everyday life.<br>Less noise, better things.</p>
+        <nav aria-label="Footer navigation">
+            <a th:href="@{/products}">Shop all</a>
+            <a th:href="@{/about}">Our story</a>
+            <a th:href="@{/contact}">Get in touch</a>
+        </nav>
+    </div>
+    <div class="footer-bottom"><span>© 2026 ThinkMart</span><span>Thoughtful by design.</span></div>
+</footer>
+</body>
+</html>

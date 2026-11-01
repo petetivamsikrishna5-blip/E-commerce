@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f2f1e9">
+    <title>ThinkMart | Better things, thoughtfully chosen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/store.css}">
+</head>
+<body>
+<div th:replace="~{fragments/layout :: header('home', ${cartCount})}"></div>
+<dialog class="success-dialog" id="success-dialog" th:if="${notice}" aria-labelledby="success-title">
+    <form method="dialog"><button class="modal-close" type="submit" aria-label="Close confirmation">×</button></form>
+    <span class="success-mark" aria-hidden="true">✓</span>
+    <p class="eyebrow">ThinkMart / Confirmed</p>
+    <h2 id="success-title">Success!</h2>
+    <p class="success-copy" th:text="${notice}">Your order has been placed successfully.</p>
+    <a class="button button-dark" th:href="@{/products}">Continue shopping <span>↗</span></a>
+</dialog>
+<p class="flash-message error home-error" th:if="${error}" th:text="${error}"></p>
+<main>
+    <section class="hero">
+        <div class="hero-copy">
+            <p class="eyebrow"><span class="eyebrow-dot"></span> The everyday, upgraded</p>
+            <h1>Better things.<br><em>Thoughtfully</em><br>chosen.</h1>
+            <p class="hero-intro">Technology that earns its place in your life. Meet the devices we love, picked for how well they work and how long they last.</p>
+            <a class="button button-dark" th:href="@{/products}">Explore the collection <span>↗</span></a>
+            <div class="hero-note"><span>01 — 08</span><span>Devices with a little more thought.</span></div>
+        </div>
+        <div class="hero-visual">
+            <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1500&q=90" alt="A carefully arranged laptop on a warm studio desk">
+            <div class="hero-sticker"><span>Built for</span><strong>the way<br>you live.</strong><i>TM / 26</i></div>
+            <div class="hero-image-caption"><span>THE WORKDAY, REIMAGINED</span><span>MACBOOK PRO · 16"</span></div>
+        </div>
+    </section>
+    <section class="ticker" aria-label="Store benefits"><div>CURATED DEVICES <b>✳</b> FREE SHIPPING OVER $50 <b>✳</b> 30-DAY RETURNS <b>✳</b> HUMAN SUPPORT <b>✳</b> CURATED DEVICES <b>✳</b> FREE SHIPPING OVER $50 <b>✳</b></div></section>
+    <section class="category-section section-pad">
+        <div class="section-heading"><div><p class="eyebrow">A good place to start</p><h2>Find your frequency.</h2></div><a class="text-link" th:href="@{/products}">All products <span>↗</span></a></div>
+        <div class="category-list">
+            <a class="category-item" th:each="category, loop : ${categories}" th:href="@{/products(category=${category.category})}">
+                <span class="category-number" th:text="|0${loop.count}|">01</span><span class="category-name" th:text="${category.category}">Laptops</span><span class="category-arrow">↗</span>
+            </a>
+        </div>
+    </section>
+    <section class="featured-section section-pad">
+        <div class="section-heading"><div><p class="eyebrow">The shortlist</p><h2>Worth a closer look.</h2></div><a class="text-link" th:href="@{/products}">See the full edit <span>↗</span></a></div>
+        <div class="product-grid">
+            <th:block th:each="product : ${featured}"><div th:replace="~{fragments/components :: productCard(${product})}"></div></th:block>
+        </div>
+    </section>
+    <section class="manifesto">
+        <span class="manifesto-mark">TM.</span><p>We believe the best technology doesn't ask for attention.<br><em>It gives you more of it.</em></p><a th:href="@{/about}">A little about us <span>↗</span></a>
+    </section>
+</main>
+<div th:replace="~{fragments/layout :: footer}"></div>
+<script th:if="${notice}">
+    document.getElementById('success-dialog').showModal();
+</script>
+</body>
+</html>

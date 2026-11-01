@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Your bag | ThinkMart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/store.css}">
+</head>
+<body>
+<div th:replace="~{fragments/layout :: header('cart', ${cartCount})}"></div>
+<main class="cart-page">
+    <div class="page-title-row"><div><p class="eyebrow">Your good choices</p><h1>Your bag<span class="title-count" th:text="|(${cartCount})|">(0)</span></h1></div><a class="text-link" th:href="@{/products}">Keep browsing ↗</a></div>
+    <p class="flash-message" th:if="${notice}" th:text="${notice}"></p><p class="flash-message error" th:if="${error}" th:text="${error}"></p>
+    <div class="cart-layout" th:if="${!#lists.isEmpty(items)}">
+        <section class="cart-items" aria-label="Items in your bag">
+            <article class="cart-item" th:each="item : ${items}">
+                <img th:src="${item.product.imageUrl}" th:alt="${item.product.name}">
+                <div class="cart-item-detail"><p class="eyebrow" th:text="${item.product.category}">Category</p><h2 th:text="${item.product.name}">Product name</h2><span th:text="|$${#numbers.formatDecimal(item.product.price, 1, 'COMMA', 2, 'POINT')} each|">$0 each</span></div>
+                <div class="quantity-control">
+                    <form th:action="@{/cart/items/{id}/quantity(id=${item.product.id})}" method="post"><input type="hidden" name="change" value="-1"><button type="submit" aria-label="Decrease quantity">−</button></form>
+                    <span th:text="${item.quantity}">1</span>
+                    <form th:action="@{/cart/items/{id}/quantity(id=${item.product.id})}" method="post"><input type="hidden" name="change" value="1"><button type="submit" aria-label="Increase quantity">+</button></form>
+                </div>
+                <strong class="line-total" th:text="|$${#numbers.formatDecimal(item.lineTotal(), 1, 'COMMA', 2, 'POINT')}|">$0.00</strong>
+                <form th:action="@{/cart/items/{id}/remove(id=${item.product.id})}" method="post"><button class="remove-button" type="submit" aria-label="Remove item">×</button></form>
+            </article>
+            <form class="coupon-form" th:action="@{/cart/coupon}" method="post">
+                <label for="coupon">Have a little something?</label><div><input id="coupon" name="code" type="text" placeholder="Enter promo code" maxlength="40"><button type="submit" th:disabled="${couponApplied}">Apply code</button></div>
+                <span class="coupon-success" th:if="${couponApplied}">THINK8 discount applied.</span>
+            </form>
+        </section>
+        <aside class="order-summary"><p class="eyebrow">The numbers</p><h2>Order summary</h2>
+            <div class="summary-line"><span>Subtotal</span><span th:text="|$${#numbers.formatDecimal(subtotal, 1, 'COMMA', 2, 'POINT')}|">$0.00</span></div>
+            <div class="summary-line"><span>Shipping</span><span class="free-shipping">On us</span></div>
+            <div class="summary-line" th:if="${couponApplied}"><span>THINK8 · 8% off</span><span class="free-shipping" th:text="|−$${#numbers.formatDecimal(discount, 1, 'COMMA', 2, 'POINT')}|">−$0.00</span></div>
+            <div class="summary-total"><span>Total</span><strong th:text="|$${#numbers.formatDecimal(total, 1, 'COMMA', 2, 'POINT')}|">$0.00</strong></div>
+            <form th:action="@{/checkout}" method="post"><button class="button button-dark checkout-button" type="submit">Place your order <span>↗</span></button></form>
+            <p class="secure-note">A smooth, secure checkout. No surprises.</p>
+        </aside>
+    </div>
+    <section class="empty-cart" th:if="${#lists.isEmpty(items)}"><span class="empty-bag">01</span><h2>Your bag is taking a breather.</h2><p>Find something useful, lovely, or a bit of both.</p><a class="button button-dark" th:href="@{/products}">Explore the collection <span>↗</span></a></section>
+</main>
+<div th:replace="~{fragments/layout :: footer}"></div>
+</body>
+</html>

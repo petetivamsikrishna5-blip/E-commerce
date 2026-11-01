@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Shop the collection | ThinkMart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/store.css}">
+</head>
+<body>
+<div th:replace="~{fragments/layout :: header('products', ${cartCount})}"></div>
+<main class="catalog-page">
+    <div class="catalog-intro"><p class="eyebrow">The ThinkMart edit / 2026</p><h1>Good tech.<br><em>No guesswork.</em></h1><p>Devices we would buy ourselves, from makers who care about the details.</p></div>
+    <section class="catalog-content">
+        <div class="catalog-toolbar">
+            <p><strong th:text="${#lists.size(products)}">8</strong> considered pieces</p>
+            <form class="filter-form" method="get" th:action="@{/products}">
+                <label for="category">Category</label>
+                <select id="category" name="category" onchange="this.form.submit()">
+                    <option value="">All devices</option>
+                    <option th:each="category : ${categories}" th:value="${category.category}" th:text="${category.category}" th:selected="${selectedCategory.equalsIgnoreCase(category.category)}">Laptops</option>
+                </select>
+                <label for="sort">Sort</label>
+                <select id="sort" name="sort" onchange="this.form.submit()">
+                    <option value="featured" th:selected="${selectedSort == 'featured'}">Featured</option>
+                    <option value="price-asc" th:selected="${selectedSort == 'price-asc'}">Price: low to high</option>
+                    <option value="price-desc" th:selected="${selectedSort == 'price-desc'}">Price: high to low</option>
+                    <option value="rating" th:selected="${selectedSort == 'rating'}">Top rated</option>
+                </select>
+            </form>
+        </div>
+        <div class="product-grid catalog-grid" th:if="${!#lists.isEmpty(products)}">
+            <th:block th:each="product : ${products}"><div th:replace="~{fragments/components :: productCard(${product})}"></div></th:block>
+        </div>
+        <div class="empty-state" th:if="${#lists.isEmpty(products)}"><h2>Nothing on this shelf yet.</h2><a class="text-link" th:href="@{/products}">Browse everything ↗</a></div>
+    </section>
+</main>
+<div th:replace="~{fragments/layout :: footer}"></div>
+</body>
+</html>
