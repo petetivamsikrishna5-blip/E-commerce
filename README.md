@@ -16,6 +16,10 @@ The app starts at signup. Create a demo account, sign in, and continue to the st
 
 Public source repository: https://github.com/petetivamsikrishna5-blip/E-commerce
 
+## Deploy
+
+The repository includes a Render Blueprint and Dockerfile. In Render, create a new Blueprint from this repository and deploy the `thinkmart-store-petetivamsikrishna5-blip` web service. After Render finishes deployment, copy its assigned `onrender.com` URL into the repository's **Settings → General → Social preview / About → Website** field. A real deployment URL cannot be set until the host creates the service.
+
 ## Test
 
 ```powershell

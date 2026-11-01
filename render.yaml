@@ -1,0 +1,8 @@
+services:
+  - type: web
+    name: thinkmart-store-petetivamsikrishna5-blip
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /signup
